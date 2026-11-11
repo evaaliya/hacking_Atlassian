@@ -1,0 +1,35 @@
+---
+description: Codegeist 2026 Forge app conventions for this repo
+alwaysApply: true
+---
+
+# Codegeist 2026 — Forge conventions
+
+This repo is an Atlassian Codegeist 2026 project built on **Forge**.
+
+## Stack
+
+- Forge CLI (`@forge/cli`), Node.js 20+ (prefer 22.x or 24.x LTS)
+- App definition lives in `manifest.yml`
+- UI Kit frontend in `src/frontend/`
+- Backend resolvers in `src/resolvers/`
+- Entry wiring in `src/index.js`
+
+## Workflow
+
+1. Change code → `forge lint` / local checks
+2. Iterate with `forge tunnel` when installed on a site
+3. Ship with `forge deploy`, then `forge install --demo-site` (or an existing site)
+4. Never commit API tokens, `.env`, or scoped credentials
+
+## Product constraints
+
+- Integrate at least one Atlassian capability: Jira, Confluence, JSM, Bitbucket, Teamwork Graph, or Rovo
+- Prefer modules that support bonus tracks when they fit the idea (`rovo:agent`, `rovo:mcp`, Teamwork Graph)
+- Keep `manifest.yml` permissions minimal and intentional
+
+## Agent behavior
+
+- Prefer official Forge docs and templates over inventing APIs
+- Do not invent `app.id` — register via `forge create` / developer console when missing
+- Keep hackathon notes in `atlassian_*.md` local-only while they remain gitignored

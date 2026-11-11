@@ -1,0 +1,24 @@
+modules:
+  jira:issuePanel:
+    - key: hacking-atlassian-hello-world-panel
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: Codegeist Hello World
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  # Replace after `forge create` / registering the app in the developer console
+  id: ari:cloud:ecosystem::app/REPLACE-WITH-YOUR-APP-ID
+permissions:
+  scopes: []
